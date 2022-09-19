@@ -1,0 +1,15 @@
+
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    flex-direction: column-reverse;
+    background-color: blueviolet;
+    color: aliceblue;
+}
+
+.nav-link{
+    color: aliceblue;
+}
