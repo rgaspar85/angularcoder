@@ -20,5 +20,23 @@
         <button class="btn btn-primary" id="botoneleccion">ACCEDER</button>
         </div>
     </div>
-  
+</div>
+    <h1>Alumnos Inscriptos</h1>
+
+    <div class="row" id="rowcard">
+
+     <div *ngFor="let Alumno of ALUMNOS" class="col-4">
+            
+        <div class="card" id="cards" style="width: 18rem;">
+            <img src="{{Alumno.ficha}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 [ngClass]=" Alumno.edad <22 ? 'bg-success ' : 'bg-primary'"  class="card-title">Nombre : {{Alumno.nombre | titlecase}}
+                </h5>
+                <h4 class="card-title"> {{Alumno.curso}} </h4>
+                <h5>Inscripcion {{ Alumno.fecha | date: 'medium'}}</h5>
+            </div>
+        </div>
+       
+        </div>
+        
 </div>
