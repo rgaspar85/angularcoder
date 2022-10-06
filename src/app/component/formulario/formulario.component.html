@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+         <div class="col">
+            <form [formGroup]="formulario" (ngSubmit)="submitForm()" >
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-group':true, 'is-invalid':formulario.get('nombre')?.errors && formulario.get('nombre')?.touched }" formControlName="nombre" placeholder="nombre">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('nombre')?.errors?.['required'] && formulario.get('nombre')?.touched"> Favor de ingresar Nombre</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-group':true, 'is-invalid':formulario.get('email')?.errors && formulario.get('email')?.touched }" formControlName="email" placeholder="email">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched"> Ingresa un email correcto</small>
+                                <small *ngIf="formulario.get('email')?.errors?.['email'] && formulario.get('email')?.touched"> Ingresa un email correcto</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" [ngClass]="{'form-group':true, 'is-invalid':formulario.get('user')?.errors && formulario.get('user')?.touched }" formControlName="user" placeholder="Usuario">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('user')?.errors?.['required'] && formulario.get('user')?.touched"> Favor de ingresar un Usuario</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="password" [ngClass]="{'form-group':true, 'is-invalid':formulario.get('password')?.errors && formulario.get('password')?.touched }" formControlName="password" placeholder="password">
+                            <div class="invalid-feedback">
+                                <small *ngIf="formulario.get('password')?.errors?.['required'] && formulario.get('password')?.touched"> Debes ingresar una Contraseña</small>
+                                <small *ngIf="formulario.get('password')?.errors?.['minlength'] && formulario.get('password')?.touched"> Debes ingresar no menos de 8 caracteres</small>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" formArrayName="conocimientos">
+                        <div *ngFor="let conocimiento of conocimientos.controls; let i = index">
+                            <div class="input-control-mb3">
+                                <input type="text" class="form-control" formControlName="{{ i }}" placeholder="conocimiento {{ i+1 }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-success" (click)="agregarconocimiento()" type="button">Agregar tus conocimientos</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

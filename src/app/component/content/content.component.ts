@@ -46,9 +46,15 @@ export class ContentComponent implements OnInit {
     }
   ]
 
+
+usuarios : any []=[]
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  agregarUsuario($event : any): void{
+    this.usuarios.push($event)
+  }
 }
