@@ -8,6 +8,12 @@ import { ContentComponent } from './component/content/content.component';
 import { FormularioComponent } from './component/formulario/formulario.component';
 import { TableComponent } from './component/table/table.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { TablaCursoComponent } from './component/tabla-curso/tabla-curso.component';
+import { InscursoPipe } from './pipe/inscurso.pipe';
+import { ColorInscripcionDirective } from './directives/color-inscripcion.directive';
+import { CardCursosComponent } from './component/card-cursos/card-cursos.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,19 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ToolbarComponent,
     ContentComponent,
     FormularioComponent,
-    TableComponent
+    TableComponent,
+    TablaCursoComponent,
+    InscursoPipe,
+    ColorInscripcionDirective,
+    CardCursosComponent
+    
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
     
   ],
   providers: [],
